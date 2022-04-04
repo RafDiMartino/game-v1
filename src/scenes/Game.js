@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 
+import WebFontFile from "./WebFontFile";
 class Game extends Phaser.Scene
 {
 
@@ -13,7 +14,8 @@ class Game extends Phaser.Scene
 
     preload()
     {
-
+        const fonts = new WebFontFile(this.load, "Press Start 2P")
+        this.load.addFile(fonts)
     }
 
     create()
@@ -39,7 +41,8 @@ class Game extends Phaser.Scene
 
 
         const scoreStyle = {
-            fontSize: 48
+            fontSize: 48,
+            fontFamily: '"Press Start 2P"'
         }
 
         this.leftScoreLabel = this.add.text(300, 125, '0', scoreStyle)  // score system
