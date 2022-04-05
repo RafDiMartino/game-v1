@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import * as Colors from "../const/Colors"
+import * as Colors from "../consts/Colors"
 export default class GameBackground extends  Phaser.Scene {
 
     preload(){
