@@ -29,11 +29,12 @@ class Game extends Phaser.Scene
 
         this.ball = this.add.circle(400, 250, 10, Colors.White, 1) // creating a circle
         this.physics.add.existing(this.ball)
+        this.ball.body.setCircle(10)
         this.ball.body.setBounce(1, 1)
 
         this.ball.body.setCollideWorldBounds(true, 1, 1) //1, 1 are x and y axes
 
-        this.resetBall()
+        // this.resetBall()
 
         this.paddleLeft = this.add.rectangle(50, 250, 30, 100, Colors.White) //create a rectangle
         this.physics.add.existing(this.paddleLeft, true) // true is setting a static body
@@ -57,6 +58,10 @@ class Game extends Phaser.Scene
         .setOrigin(0.5, 0.5)
 
         this.cursors = this.input.keyboard.createCursorKeys() //create and return an object containing 4 hotkeys for up, down, let and right, spacebar and shift
+
+        this.time.delayedCall(1000, () => {
+            this.resetBall()
+        }) //time between Title Screen and Game
     }
     update()
     {
